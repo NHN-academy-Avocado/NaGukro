@@ -12,7 +12,7 @@ public class Main {
         System.out.println(last);
 
         String name1 = "NaGukRo";
-        System.out.println(name1.substring(0,1));
+        System.out.println(name1.substring( 0,1));
         System.out.println(name1.substring(name1.length()-1,name1.length()));
 
         String a = JOptionPane.showInputDialog("Insert Input");
