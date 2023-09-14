@@ -8,6 +8,12 @@ public class Message {
 
     private MessageText messageText;
 
+    public Message(String callNumber, String senderNumber, MessageText messageText) {
+        this.callNumber = callNumber;
+        this.senderNumber = senderNumber;
+        this.messageText = messageText;
+    }
+
     public Message(String callNumber, MessageText messageText) {
         this.callNumber = callNumber;
         this.messageText = messageText;
