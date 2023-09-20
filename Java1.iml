@@ -3,6 +3,7 @@
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$" dumb="true">
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/org/example/chapter2" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/org/example/chapter5" />
     </content>
   </component>
   <component name="CheckStyle-IDEA-Module" serialisationVersion="2">
