@@ -1,5 +1,10 @@
 package org.example.chapter7.exercise;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class Apartment {
@@ -42,7 +47,7 @@ public class Apartment {
     public void addPerson(String name) {
         Person person = new Person(name);
         for (Person p : peoplelist) {
-            if (p.getName() == null) {
+            if (  p.getName() == null) {
                 int id = p.getId();
                 person.setId(id);
                 p.setName(person.getName());
@@ -85,5 +90,38 @@ public class Apartment {
                 ", address='" + address + '\'' +
                 ", peoplelist=" + Arrays.toString(peoplelist) +
                 '}';
+    }
+
+    public void saveToFile(String fileName) {
+        try (PrintWriter writer = new PrintWriter(new FileOutputStream(fileName))) {
+            writer.println(size);
+            writer.println(address);
+            for (Person person : peoplelist) {
+                if (person != null) {
+                    writer.println(person.getName());
+                } else {
+                    writer.println("null");
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Apartment readFromFile(BufferedReader reader) throws IOException {
+        int size = Integer.parseInt(reader.readLine());
+        String address = reader.readLine();
+        Apartment apt = new Apartment(size, address);
+        //여기서 다시 리셋해줘서 nullpoint exception 피하기
+        apt.resetPeoplelist();
+
+        for (int i = 0; i < 10; i++) {
+            String name = reader.readLine();
+            if (!"null".equals(name)) {
+                apt.addPerson(name);
+            }
+        }
+
+        return apt;
     }
 }
