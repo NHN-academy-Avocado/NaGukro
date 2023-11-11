@@ -1,0 +1,26 @@
+package org.chapter.chapter12.thread_class_extension;
+
+public class ThreadCounter extends Thread{
+    int count;
+    int maxCount;
+
+    public ThreadCounter(String name, int maxCount) {
+        setName(name);
+        this.maxCount = maxCount;
+        count = 0;
+    }
+
+    @Override
+    public void run() {
+        while (count<maxCount) {
+            try {
+                count++;
+                System.out.println(getName() + " : " + count);
+                Thread.sleep(1000);
+            } catch (InterruptedException interruptedException) {
+                Thread.currentThread().interrupt();
+            }
+        }
+
+    }
+}
