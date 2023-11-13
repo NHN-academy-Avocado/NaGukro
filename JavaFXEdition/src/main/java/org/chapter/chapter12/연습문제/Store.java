@@ -40,7 +40,7 @@ public class Store {
         while (numberOfItems >= MAX_CAPACITY) {
             wait(); // 물건이 가득 차면 대기
         }
-        numberOfItems++;
+        numberOfItems= MAX_CAPACITY;
         System.out.println("물건 입고. 매장 내 물건 수: " + numberOfItems);
         // 소비자에게 알림
         notifyAll();

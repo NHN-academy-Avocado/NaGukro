@@ -4,7 +4,7 @@ public class MarketSimulator {
     public static void main(String[] args) {
         String[] items = {"사과", "바나나", "오렌지"};
         int storePermits = 5; // 매장에 동시에 입장할 수 있는 최대 고객 수
-        Store store = new Store(items, 5, storePermits);
+        Store store = new Store(items, items.length, storePermits);
 
         // 각 물품별로 생산자 스레드 생성 및 시작
         for (String item : items) {

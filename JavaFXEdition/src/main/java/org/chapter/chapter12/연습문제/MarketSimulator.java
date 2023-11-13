@@ -9,7 +9,7 @@ public class MarketSimulator {
         producerThread.start(); // 생산자 스레드 시작
 
         // 소비자 스레드 생성 및 시작
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 10; i++) {
             Consumer consumer = new Consumer("소비자 " + i, store);
             Thread consumerThread = new Thread(consumer);
             consumerThread.start();

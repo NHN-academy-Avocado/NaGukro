@@ -16,7 +16,7 @@ public class Producer implements Runnable {
         try {
             while (true) {
                 store.sell(item); // 지정된 물품을 매장에 납품
-                int sleepTime = ThreadLocalRandom.current().nextInt(1, 11) * 1000; // 1~10초 사이의 잠시 대기
+                int sleepTime = ThreadLocalRandom.current().nextInt(1, 11) * 3000; // 1~10초 사이의 잠시 대기
                 System.out.println("생산자가 " + item + "을(를) 납품하고, 다음 납품까지 " + sleepTime / 1000 + "초 대기합니다.");
                 Thread.sleep(sleepTime);
             }
