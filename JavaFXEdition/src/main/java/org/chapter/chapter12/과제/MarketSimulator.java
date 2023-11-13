@@ -6,11 +6,9 @@ public class MarketSimulator {
         int storePermits = 5; // 매장에 동시에 입장할 수 있는 최대 고객 수
         Store store = new Store(items, items.length, storePermits);
 
-        // 각 물품별로 생산자 스레드 생성 및 시작
-        for (String item : items) {
-            Producer producer = new Producer(store, item);
-            new Thread(producer).start();
-        }
+        // 단일 생산자 스레드 생성 및 시작
+        Producer producer = new Producer(store, items);
+        new Thread(producer).start();
 
         // 소비자 스레드 생성 및 시작
         for (int i = 1; i <= 10; i++) {
@@ -19,5 +17,4 @@ public class MarketSimulator {
             new Thread(consumer).start();
         }
     }
-
 }

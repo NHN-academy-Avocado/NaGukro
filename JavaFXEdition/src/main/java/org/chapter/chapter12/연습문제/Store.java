@@ -30,7 +30,7 @@ public class Store {
         }
         numberOfItems--;
         System.out.println("물건 구매. 남은 물건 수: " + numberOfItems);
-        // 필요시 생산자에게 알림
+        // 필요시 생산자에게작알림
         if (numberOfItems < MAX_CAPACITY) {
             notifyAll();
         }
