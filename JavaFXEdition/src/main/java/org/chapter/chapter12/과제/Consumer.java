@@ -17,7 +17,9 @@ public class Consumer implements Runnable {
     public void run() {
         try {
             while (true) {
+                store.enter(); // 매장에 입장
                 store.buy(item); // 지정된 물품 구매
+                store.exit(); // 매장 퇴장
                 System.out.println(name + "가 " + item + "을(를) 구매하고 퇴장했습니다.");
 
                 int sleepTime = ThreadLocalRandom.current().nextInt(1, 11) * 1000; // 1~10초 사이의 잠시 대기
