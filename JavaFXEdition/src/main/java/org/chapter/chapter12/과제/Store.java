@@ -40,7 +40,7 @@ public class Store {
             while (inventory.get(item) == 0) {
                 wait(); // 해당 물품이 없으면 대기
             }
-            inventory.put(item, inventory.get(item) - 1); // 물품 구매
+            inventory.put(item, MAX_CAPACITY - inventory.get(item) ); // 물품 구매
             System.out.println(item + " 구매. 남은 수량: " + inventory.get(item));
         }
 
